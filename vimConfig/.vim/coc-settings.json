@@ -1,0 +1,44 @@
+{
+  "diagnostic.checkCurrentLine": true,
+  "rust-analyzer.completion.autoself.enable": true,
+  "rust-analyzer.completion.autoimport.enable": true,
+  "diagnostic.messageTarget": "echo",
+  "yaml.format.enable": true,
+  "python.linting.flake8Enabled": true,
+  "python.jediEnabled": true,
+  "suggest.autoTrigger": "always",
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade", "hbs"],
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true,
+  "html.format.enable": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/"],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+      "initializationOptions": {
+          "cache": {
+            "directory": "/tmp/ccls"
+          }
+        }
+    }
+  }
+}

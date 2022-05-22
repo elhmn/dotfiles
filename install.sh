@@ -4,7 +4,7 @@ set -e
 
 #import utils
 #this will work only if curl installed
-. ./lib.sh || . <(curl -s https://raw.githubusercontent.com/elhmn/dotfiles/main/lib.sh)
+. ./lib.sh
 
 if [[ ! -d ~/dotfiles ]]; then
 	echo "Cloning dotfiles repository..."
@@ -47,7 +47,7 @@ fi
 #setup vim config
 if [[ ! -d ~/vimConfig ]]; then
 	echo "Installing vim..."
-	git clone https://github.com/elhmn/vimConfig.git ~/vimConfig
+	cp -R ./vimConfig ~/vimConfig
 	ln -sv ~/vimConfig/.vimrc ~/.vimrc
 	ln -sv ~/vimConfig/.vim ~/.vim
 	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
