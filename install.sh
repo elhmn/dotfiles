@@ -29,6 +29,33 @@ if ! command_exist vim; then
 	echo "Vim installed!"
 fi
 
+#install npm
+if ! command_exist npm; then
+	echo "Installing npm..."
+	install_npm
+	echo "NPM installed!"
+fi
+
+#install npm
+if ! command_exist node; then
+	echo "Installing node..."
+	install_npm
+	echo "node installed!"
+fi
+
+#setup vim config
+if [[ ! -d ~/vimConfig ]]; then
+	echo "Installing vim..."
+	git clone https://github.com/elhmn/vimConfig.git ~/vimConfig
+	ln -sv ~/vimConfig/.vimrc ~/.vimrc
+	ln -sv ~/vimConfig/.vim ~/.vim
+	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
+	vim -es -u ~/.vimrc +PlugInstall +qa
+	#install language server
+	npm i -g bash-language-server
+	echo "Vim installed!"
+fi
+
 #install curl
 if ! command_exist curl; then
 	echo "Installing curl."
@@ -46,7 +73,7 @@ fi
 #install ckp
 if [[ ! -d ~/.ckp ]]; then
 	echo "Installing ckp..."
-	curl https://raw.githubusercontent.com/elhmn/ckp/master/install.sh | bash 
+	curl https://raw.githubusercontent.com/elhmn/ckp/master/install.sh | bash
 	sudo cp ./bin/ckp /usr/local/bin
 	rm -rf ./bin/ckp
 	echo "ckp installed!"

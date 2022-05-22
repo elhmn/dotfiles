@@ -27,3 +27,15 @@ function install_curl() {
 		sudo apt update -y && sudo apt-get install curl -y
 	fi
 }
+
+function install_npm() {
+	if is_linux; then
+		sudo apt update -y && sudo apt-get install npm -y
+	fi
+}
+
+function install_node() {
+	if is_linux; then
+		sudo apt update -y && sudo apt-get install nodejs -y
+	fi
+}
