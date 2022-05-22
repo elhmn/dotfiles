@@ -12,12 +12,15 @@ if [[ ! -d ~/dotfiles ]]; then
 fi
 
 #setup gitconfig
+echo "Setting up git configuration"
 if [[ ! -f ~/.gitconfig ]]; then
-	echo "Setting up git configuration"
 	ln -sv ~/dotfiles/git/.gitconfig ~
+fi
+if [[ ! -f ~/.gitignore_global ]]; then
 	ln -sv ~/dotfiles/git/.gitignore_global ~
 	echo "git configuration set up!"
 fi
+echo "git configuration set up!"
 
 #install vim
 if ! command_exist vim; then
@@ -49,5 +52,4 @@ if [[ ! -d ~/.ckp ]]; then
 	echo "Initialising ckp..."
 	ckp init https://github.com/elhmn/store
 	echo "ckp initialized!"
-
 fi
