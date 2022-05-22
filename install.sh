@@ -48,6 +48,7 @@ if [[ ! -d ~/.ckp ]]; then
 	echo "Installing ckp..."
 	curl https://raw.githubusercontent.com/elhmn/ckp/master/install.sh | bash 
 	sudo cp ./bin/ckp /usr/local/bin
+	rm -rf ./bin/ckp
 	echo "ckp installed!"
 	echo "Initialising ckp..."
 	ckp init https://github.com/elhmn/store
