@@ -4,7 +4,7 @@ set -e
 
 #import utils
 #this will work only if curl installed
-. ./lib.sh || . <(curl -s https://raw.githubusercontent.com/elhmn/dotfiles/main/lib.sh)
+. ./lib.sh &>/dev/null || . <(curl -s https://raw.githubusercontent.com/elhmn/dotfiles/main/lib.sh)
 
 if [[ ! -d ~/dotfiles ]]; then
 	echo "Cloning dotfiles repository..."
