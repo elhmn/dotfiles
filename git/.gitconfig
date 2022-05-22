@@ -1,0 +1,9 @@
+[user]
+	name = elhmn
+	email = elhmn@github.com
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[url "git@github.com:"]
+	insteadOf = https://github.com/
