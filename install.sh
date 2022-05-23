@@ -37,10 +37,10 @@ if ! command_exist npm; then
 	echo "NPM installed!"
 fi
 
-#install npm
+#install node
 if ! command_exist node; then
 	echo "Installing node..."
-	install_npm
+	install_node
 	echo "node installed!"
 fi
 
