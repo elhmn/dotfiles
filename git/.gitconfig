@@ -3,6 +3,8 @@
 	email = elhmn@github.com
 [diff]
 	tool = vimdiff
+[core]
+	editor = vim
 [merge]
 	tool = vimdiff
 [url "git@github.com:"]
