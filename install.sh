@@ -51,7 +51,9 @@ if [[ ! -d ~/vimConfig ]]; then
 	ln -sv ~/vimConfig/.vimrc ~/.vimrc
 	ln -sv ~/vimConfig/.vim ~/.vim
 	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
+	set +e
 	vim -es -u ~/.vimrc +PlugInstall +qa
+	set -e
 	#install language server
 	npm i -g bash-language-server
 	echo "Vim installed!"
