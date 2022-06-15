@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 #import utils
 #this will work only if curl installed
@@ -30,6 +30,13 @@ if ! command_exist vim; then
 	echo "Vim installed!"
 fi
 
+#install nvim
+if ! command_exist nvim; then
+	echo "Installing nvim..."
+	install_nvim
+	echo "Nvim installed!"
+fi
+
 #install npm
 if ! command_exist npm; then
 	echo "Installing npm..."
@@ -52,10 +59,13 @@ if [[ ! -d ~/vimConfig ]]; then
 	ln -sv ~/vimConfig/.vim ~/.vim
 	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
 	set +e
-	vim -es -u ~/.vimrc +PlugInstall +qa
+	mkdir ~/.config/nvim
+	ln -sv ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+	sudo vim -es -u ~/.vimrc +PlugInstall +qa
+	sudo nvim -es -u ~/.vimrc +PlugInstall +qa
 	set -e
 	#install language server
-	npm i -g bash-language-server
+	sudo npm i -g bash-language-server
 	echo "Vim installed!"
 fi
 

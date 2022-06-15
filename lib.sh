@@ -22,6 +22,19 @@ function install_vim() {
 	fi
 }
 
+function install_nvim() {
+	if is_macos; then
+		#TODO
+		echo "Is mac"
+	elif is_linux; then
+		wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim
+		chmod u+x nvim
+		sudo mv nvim /usr/local/bin/nvim
+	fi
+}
+
+
+
 function install_curl() {
 	if is_linux; then
 		sudo apt update -y && sudo apt-get install curl -y
