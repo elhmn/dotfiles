@@ -62,6 +62,7 @@ if [[ ! -d ~/vimConfig ]]; then
 	set +e
 	mkdir ~/.config/nvim
 	ln -sv ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+	ln -sv ~/vimConfig/.vim/coc-settings.json ~/.config/nvim/coc-settings.json
 	sudo vim -es -u ~/.vimrc +PlugInstall +qa
 	sudo nvim -es -u ~/.vimrc +PlugInstall +qa
 	set -e
