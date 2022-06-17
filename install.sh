@@ -56,6 +56,7 @@ if [[ ! -d ~/vimConfig ]]; then
 	echo "Installing vim..."
 	git clone https://github.com/elhmn/vimConfig ~/vimConfig
 	ln -sv ~/vimConfig/.vimrc ~/.vimrc
+	ln -sv ~/vimConfig/.vimrc ~/.nvimrc
 	ln -sv ~/vimConfig/.vim ~/.vim
 	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
 	set +e
