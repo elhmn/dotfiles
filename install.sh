@@ -79,9 +79,6 @@ echo "Setting up git configuration"
 # if [[ ! -f ~/.gitconfig ]]; then
 # 	ln -sv ~/dotfiles/git/.gitconfig ~
 # fi
-if [[ ! -f ~/.ssh/config ]]; then
-	ln -sv ~/dotfiles/ssh/config ~/.ssh/config
-fi
 if [[ ! -f ~/.gitignore_global ]]; then
 	ln -sv ~/dotfiles/git/.gitignore_global ~
 	echo "git configuration set up!"

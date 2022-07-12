@@ -27,9 +27,9 @@ function install_nvim() {
 		#TODO
 		echo "Is mac"
 	elif is_linux; then
-		wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim
-		chmod u+x nvim
-		sudo mv nvim /usr/local/bin/nvim
+		wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim-bin
+		chmod u+x nvim-bin
+		mv nvim-bin /usr/local/bin/nvim
 	fi
 }
 
