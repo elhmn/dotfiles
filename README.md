@@ -14,6 +14,12 @@ The local dev environment is based on docker.
 docker build .  -t dev-container
 ```
 
+You can build without cache using
+
+```bash
+docker build .  -t dev-container --no-cache
+```
+
 ### Run the dev-container with a volume
 
 ```bash
