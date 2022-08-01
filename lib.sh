@@ -49,6 +49,8 @@ function install_npm() {
 
 function install_node() {
 	if is_linux; then
-		sudo apt update -y && sudo apt-get install nodejs -y
+		sudo apt update -y
+		curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+		sudo apt-get install -y nodejs
 	fi
 }

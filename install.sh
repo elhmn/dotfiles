@@ -26,18 +26,18 @@ if ! command_exist nvim; then
 	echo "Nvim installed!"
 fi
 
-#install npm
-# if ! command_exist npm; then
-# 	echo "Installing npm..."
-# 	install_npm
-# 	echo "NPM installed!"
-# fi
-
 #install node
 if ! command_exist node; then
 	echo "Installing node..."
 	install_node
 	echo "node installed!"
+fi
+
+#install npm
+if ! command_exist npm; then
+	echo "Installing npm..."
+	install_npm
+	echo "NPM installed!"
 fi
 
 #install curl
