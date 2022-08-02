@@ -29,7 +29,7 @@ function install_nvim() {
 	elif is_linux; then
 		wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim-bin
 		chmod u+x nvim-bin
-		mv nvim-bin /usr/local/bin/nvim
+		sudo mv nvim-bin /usr/local/bin/nvim
 	fi
 }
 
