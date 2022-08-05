@@ -67,6 +67,7 @@ if [[ ! -d ~/vimConfig ]]; then
 	ln -sv ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 	ln -sv ~/vimConfig/.vim/coc-settings.json ~/.config/nvim/coc-settings.json
 	nvim --headless +PlugInstall +qall
+	nvim --headless +CocInstall +qall
 	set -e
 	#install language server
 	sudo npm i -g bash-language-server
