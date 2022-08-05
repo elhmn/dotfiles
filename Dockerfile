@@ -17,6 +17,7 @@ git \
 sudo \
 wget \
 neovim \
+make \
 zsh
 
 # Install yarn
