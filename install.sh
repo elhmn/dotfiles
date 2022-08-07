@@ -51,6 +51,8 @@ fi
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh..."
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+	#set the `essembeh` as theme
+	sed  -i -s 's/\(ZSH_THEME\)="\(.*\)"/\1="essembeh"/g' ~/.zshrc
 	echo "oh-my-zsh installed!"
 fi
 
@@ -62,13 +64,33 @@ if [[ ! -d ~/vimConfig ]]; then
 	ln -sv ~/vimConfig/.vimrc ~/.nvimrc
 	ln -sv ~/vimConfig/.vim ~/.vim
 	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
-	set +e
-	mkdir -p  ~/.config/nvim
-	ln -sv ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-	ln -sv ~/vimConfig/.vim/coc-settings.json ~/.config/nvim/coc-settings.json
-	nvim --headless +PlugInstall +qall
-	nvim --headless +CocInstall +qall
-	set -e
+
+	#setup nvim config
+	if command_exist nvim; then
+		set +e
+		mkdir -p  ~/.config/nvim
+		ln -sv ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+		ln -sv ~/vimConfig/.vim/coc-settings.json ~/.config/nvim/coc-settings.json
+		nvim --headless +PlugInstall +qall
+		nvim --headless +CocInstall +qall
+		echo "alias vim=nvim" >> ~/.zshrc
+		set -e
+    fi
+
+    #install coc extensions
+	mkdir -p ~/.config/coc/extensions
+	cd ~/.config/coc/extensions
+	if [ ! -f package.json ]
+	then
+  	  echo '{"dependencies":{}}'> package.json
+	fi
+
+	grep -e "'coc-.*'" -o ~/vimConfig/.vimrc | sed "s/[' ]//g;s/,/\n/g" | xargs -I{} npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod {}; exit 0
+
+
+	#update coc extensions
+	nvim +CocUpdateSync +qall
+
 	#install language server
 	sudo npm i -g bash-language-server
 	echo "Vim installed!"
@@ -76,9 +98,6 @@ fi
 
 #setup gitconfig
 echo "Setting up git configuration"
-# if [[ ! -f ~/.gitconfig ]]; then
-# 	ln -sv ~/dotfiles/git/.gitconfig ~
-# fi
 if [[ ! -f ~/.gitignore_global ]]; then
 	ln -sv ~/dotfiles/git/.gitignore_global ~
 	echo "git configuration set up!"
@@ -86,13 +105,13 @@ fi
 echo "git configuration set up!"
 
 #install ckp
-# if [[ ! -d ~/.ckp ]]; then
-# 	echo "Installing ckp..."
-# 	curl https://raw.githubusercontent.com/elhmn/ckp/master/install.sh | bash
-# 	cp ./bin/ckp /usr/local/bin
-# 	rm -rf ./bin/ckp
-# 	echo "ckp installed!"
+if [[ ! -d ~/.ckp ]]; then
+	echo "Installing ckp..."
+	curl https://raw.githubusercontent.com/elhmn/ckp/master/install.sh | bash
+	cp ./bin/ckp /usr/local/bin
+	rm -rf ./bin/ckp
+	echo "ckp installed!"
+fi
 # 	echo "Initialising ckp..."
 # 	ckp init https://github.com/elhmn/store
 # 	echo "ckp initialized!"
-# fi

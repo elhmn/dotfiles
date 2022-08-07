@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := help
+
 ## build: build the dev container
 .PHONY: build
 build:
@@ -11,8 +13,7 @@ build-nocache:
 ## run: run the dev container
 .PHONY: run
 run:
-	docker run --rm -v "$$(echo $$HOME)/local-dev:/home/user/local-dev" -p 80:80 -p 8080:8080 -p 3000-3010:3000-3010 -P -dt dev-container
-.DEFAULT_GOAL := help
+	docker run --rm -v ~/.ssh:/home/user/.ssh:ro -v "$$(echo $$HOME)/local-dev:/home/user/local-dev" -p 80:80 -p 8080:8080 -p 3000-3010:3000-3010 -P -dt dev-container
 
 ## exec-nc: exec-nc exec inside a new container
 .PHONY: exec-nc
@@ -25,7 +26,7 @@ exec-ni: stop build run exec
 ## exec: exec into the dev container
 .PHONY: exec
 exec:
-	docker exec -it $$(docker ps | grep dev-container | head -n1 | cut -d " " -f 1) /bin/zsh
+	docker exec -w /home/user/local-dev -it $$(docker ps | grep dev-container | head -n1 | cut -d " " -f 1) /bin/zsh
 
 ## stop: stop dev containers
 .PHONY: stop

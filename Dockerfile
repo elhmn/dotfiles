@@ -28,6 +28,11 @@ RUN ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 RUN ./install.sh
 RUN sudo npm install -g yarn
 
+#Copy the .gitconfig
+#The config is copied after we run the install.sh script because
+#we want to use the git ssh protocol only after we have installed our container's dependencies
+RUN ln -sv ~/dotfiles/git/.gitconfig ~
+
 # We are exposing a range of 11 ports that can later be used for, to run your applications.
 # To check what localhost port these ports are bound to, use the `docker ps` or `docker port <container>` commands
 EXPOSE 3000-3010

@@ -33,4 +33,10 @@ docker run --rm -v "$(echo $HOME)/local-dev:/home/user/local-dev" -p 80:80 -p 80
 docker exec -it $(docker ps | grep dev-container | head -n1 | cut -d " " -f 1) /bin/bash
 ```
 
-Note: if `:GoInstallBinaries` does not work try adding the `export GOBIN=$GOPATH/bin` to your `.zshrc` or `.bashrc`
+
+### Troobleshooting:
+
+
+#### nvim:
+- If `:GoInstallBinaries` does not work try adding the `export GOBIN=$GOPATH/bin` to your `.zshrc` or `.bashrc`
+- An issue with `Error on execute :pyx command, ultisnips feature of coc-snippets` try to run `pip3 install pynvim`. [More informations](https://www.reddit.com/r/neovim/comments/u0ofn4/comment/i4emnfn/?utm_source=share&utm_medium=web2x&context=3) and [here](https://github.com/neoclide/coc-snippets#python-support)
