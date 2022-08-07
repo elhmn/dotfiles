@@ -23,7 +23,7 @@ docker build .  -t dev-container --no-cache
 ### Run the dev-container with a volume
 
 ```console
-docker run --rm -v "$(echo $HOME)/local-dev:/home/user/local-dev" -p 80:80 -p 8080:8080 -p 3000-3010:3000-3010 -P -dt dev-container
+docker run --rm -v "$(echo $HOME)/workspace:/home/user/workspace" -p 80:80 -p 8080:8080 -p 3000-3010:3000-3010 -P -dt dev-container
 ```
 
 
