@@ -47,6 +47,13 @@ if ! command_exist curl; then
 	echo "curl installed!"
 fi
 
+#install rust toolchain
+if ! command_exist cargo; then
+	echo "Installing the rust toolchain."
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
+	echo "rust toolchain installed!"
+fi
+
 #install oh-my-zsh
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh..."
@@ -90,6 +97,10 @@ if [[ ! -d ~/vimConfig ]]; then
 
 	#update coc extensions
 	nvim +CocUpdateSync +qall
+
+	#fix neovim local utf8 not supported
+	echo "export LC_ALL=en_US.UTF-8" >> ~/.zshrc
+	echo "export LANG=en_US.UTF-8" >> ~/.zshrc
 
 	#install language server
 	sudo npm i -g bash-language-server
