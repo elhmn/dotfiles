@@ -50,7 +50,7 @@ fi
 #install rust toolchain
 if ! command_exist cargo; then
 	echo "Installing the rust toolchain."
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -v -y
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 	echo "rust toolchain installed!"
 fi
 
@@ -58,8 +58,8 @@ fi
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh..."
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-	#set the `essembeh` as theme
-	sed  -i -s 's/\(ZSH_THEME\)="\(.*\)"/\1="essembeh"/g' ~/.zshrc
+	#set a new theme
+	sed  -i -s 's/\(ZSH_THEME\)="\(.*\)"/\1="fino"/g' ~/.zshrc
 	echo "oh-my-zsh installed!"
 fi
 
