@@ -50,7 +50,7 @@ fi
 #install rust toolchain
 if ! command_exist cargo; then
 	echo "Installing the rust toolchain."
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -v -y
 	echo "rust toolchain installed!"
 fi
 
