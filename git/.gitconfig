@@ -1,6 +1,8 @@
 [user]
 	name = elhmn
 	email = elhmn@github.com
+[github]
+	user = elhmn
 [diff]
 	tool = vimdiff
 [core]
