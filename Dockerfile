@@ -18,7 +18,9 @@ sudo \
 wget \
 neovim \
 make \
-zsh
+zsh \
+fuse \
+libfuse2
 
 # Install yarn
 USER user
