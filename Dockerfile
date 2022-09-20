@@ -20,7 +20,8 @@ neovim \
 make \
 zsh \
 fuse \
-libfuse2
+libfuse2 \
+ack-grep
 
 # Install yarn
 USER user
