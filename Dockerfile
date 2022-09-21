@@ -21,7 +21,9 @@ make \
 zsh \
 fuse \
 libfuse2 \
-ack-grep
+ack-grep \
+ccls \
+clang \
 
 # Install yarn
 USER user
