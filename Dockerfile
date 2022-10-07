@@ -23,7 +23,7 @@ fuse \
 libfuse2 \
 ack-grep \
 ccls \
-clang \
+clang
 
 # Install yarn
 USER user
