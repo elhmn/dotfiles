@@ -58,9 +58,15 @@ fi
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh..."
 	bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+	echo "oh-my-zsh installed!"
+fi
+
+#setup new zsh theme
+if [[ ! -d ~/.zshrc ]]; then
+	echo "Setting up new zsh theme"
 	#set a new theme
 	sed  -i -s 's/\(ZSH_THEME\)="\(.*\)"/\1="fino"/g' ~/.zshrc
-	echo "oh-my-zsh installed!"
+	echo "new zsh theme set!"
 fi
 
 #setup vim config
