@@ -33,7 +33,15 @@ function install_nvim() {
 	fi
 }
 
-
+#install gvm (go package manager)
+function install_gvm() {
+	if is_macos; then
+		#TODO
+		echo "Is mac"
+	elif is_linux; then
+		bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+	fi
+}
 
 function install_curl() {
 	if is_linux; then

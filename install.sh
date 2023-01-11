@@ -54,6 +54,13 @@ if ! command_exist cargo; then
 	echo "rust toolchain installed!"
 fi
 
+#install gvm (go package manager)
+if ! command_exist gvm; then
+	echo "Installing gvm."
+	install_gvm
+	echo "gvm installed!"
+fi
+
 #install oh-my-zsh
 if [[ ! -d ~/.oh-my-zsh ]]; then
 	echo "Installing oh-my-zsh..."
