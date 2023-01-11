@@ -95,7 +95,7 @@ if [[ ! -d ~/vimConfig ]]; then
 	cd ~/.config/coc/extensions
 	if [ ! -f package.json ]
 	then
-  	  echo '{"dependencies":{}}'> package.json
+	  echo '{"dependencies":{}}'> package.json
 	fi
 
 	grep -e "'coc-.*'" -o ~/vimConfig/.vimrc | sed "s/[' ]//g;s/,/\n/g" | xargs -I{} npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod {}; exit 0
