@@ -100,6 +100,11 @@ if [[ ! -d ~/vimConfig ]]; then
 
 	grep -e "'coc-.*'" -o ~/vimConfig/.vimrc | sed "s/[' ]//g;s/,/\n/g" | xargs -I{} npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod {}; exit 0
 
+	#setup copilot
+	echo "setting up copilot..."
+	git clone https://github.com/github/copilot.vim.git \
+	~/.vim/pack/github/start/copilot.vim
+	echo "copilot setup!"
 
 	#update coc extensions
 	nvim +CocUpdateSync +qall
