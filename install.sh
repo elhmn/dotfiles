@@ -145,6 +145,11 @@ if [[ ! -f ~/.gitignore_global ]]; then
 	ln -sv ~/dotfiles/git/.gitignore_global ~
 	echo "git configuration set up!"
 fi
+
+if [[ ! -f ~/.gitconfig ]] || [[ ! $(grep "hide-status = 1" ~/.gitconfig) ]]; then
+	ln -sv ~/dotfiles/git/.gitconfig ~
+	echo "git configuration set up!"
+fi
 echo "git configuration set up!"
 
 #install ckp
