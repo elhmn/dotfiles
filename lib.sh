@@ -22,6 +22,15 @@ function install_vim() {
 	fi
 }
 
+function install_fuse() {
+	if is_macos; then
+		#TODO
+		echo "Is mac"
+	elif is_linux; then
+		sudo apt install libfuse2 -y
+	fi
+}
+
 function install_nvim() {
 	if is_macos; then
 		#TODO
@@ -40,6 +49,16 @@ function install_gvm() {
 		echo "Is mac"
 	elif is_linux; then
 		bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+	fi
+}
+
+#install zsh
+function install_zsh() {
+	if is_macos; then
+		#TODO
+		echo "Is mac"
+	elif is_linux; then
+		sudo apt install zsh -y
 	fi
 }
 

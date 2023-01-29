@@ -12,6 +12,13 @@ if [[ ! -d ~/dotfiles ]]; then
 	echo "Dofiles repository installed!"
 fi
 
+#install fuse
+if ! command_exist fusermout; then
+	echo "Installing fuse..."
+	install_fuse
+	echo "fuse installed!"
+fi
+
 #install vim
 if ! command_exist vim; then
 	echo "Installing vim..."
@@ -59,6 +66,13 @@ if ! command_exist gvm; then
 	echo "Installing gvm."
 	install_gvm
 	echo "gvm installed!"
+fi
+
+#install zsh
+if [[ ! -d ~/.zshrc ]]; then
+	echo "Installing zsh."
+	install_zsh
+	echo "zsh installed!"
 fi
 
 #install oh-my-zsh
