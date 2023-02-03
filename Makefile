@@ -23,6 +23,10 @@ exec-nc: stop run exec
 .PHONY: exec-ni
 exec-ni: stop build run exec
 
+## exec-ni-nocache: exec-ni-nocache exec with nocache
+.PHONY: exec-ni-nocache
+exec-ni-nocache: stop build-nocache run exec
+
 ## exec: exec into the dev container
 .PHONY: exec
 exec:

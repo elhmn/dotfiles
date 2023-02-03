@@ -61,12 +61,6 @@ if ! command_exist cargo; then
 	echo "rust toolchain installed!"
 fi
 
-#install gvm (go package manager)
-if ! command_exist gvm; then
-	echo "Installing gvm."
-	install_gvm
-	echo "gvm installed!"
-fi
 
 #install zsh
 if [[ ! -d ~/.zshrc ]]; then
@@ -90,9 +84,17 @@ if [[ ! -d ~/.zshrc ]]; then
 	echo "new zsh theme set!"
 fi
 
+#install gvm (go package manager)
+if ! command_exist gvm; then
+	echo "Installing gvm."
+	install_gvm
+	echo "gvm installed!"
+fi
+
 #setup vim config
 if [[ ! -d ~/vimConfig ]]; then
 	echo "Installing vim..."
+	set +e
 	git clone https://github.com/elhmn/vimConfig.git ~/vimConfig
 	ln -sv ~/vimConfig/.vimrc ~/.vimrc
 	ln -sv ~/vimConfig/.vimrc ~/.nvimrc
@@ -101,14 +103,12 @@ if [[ ! -d ~/vimConfig ]]; then
 
 	#setup nvim config
 	if command_exist nvim; then
-		set +e
 		mkdir -p  ~/.config/nvim
 		ln -sv ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 		ln -sv ~/vimConfig/.vim/coc-settings.json ~/.config/nvim/coc-settings.json
 		nvim --headless +PlugInstall +qall
 		nvim --headless +CocInstall +qall
 		echo "alias vim=nvim" >> ~/.zshrc
-		set -e
     fi
 
     #install coc extensions
@@ -136,8 +136,10 @@ if [[ ! -d ~/vimConfig ]]; then
 
 	#install language server
 	sudo npm i -g bash-language-server
+	set -e
 	echo "Vim installed!"
 fi
+
 
 #setup gitconfig
 echo "Setting up git configuration"

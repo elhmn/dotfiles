@@ -11,7 +11,7 @@ RUN usermod -aG sudo user
 
 RUN apt-get update
 RUN apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 git \
 sudo \
@@ -23,11 +23,13 @@ fuse \
 libfuse2 \
 ack-grep \
 ccls \
+gcc \
+bison \
 clang
 
 # Install yarn
 USER user
-WORKDIR /user/dotfiles
+WORKDIR /home/user/dotfiles
 COPY . ./
 RUN ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 RUN ./install.sh

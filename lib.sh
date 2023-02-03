@@ -49,6 +49,8 @@ function install_gvm() {
 		echo "Is mac"
 	elif is_linux; then
 		bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+		#This only works on docker
+		cat /home/user/.gvm/scripts/gvm >> ~/.zshrc
 	fi
 }
 
