@@ -48,9 +48,10 @@ function install_gvm() {
 		#TODO
 		echo "Is mac"
 	elif is_linux; then
-		bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-		#This only works on docker
-		cat /home/user/.gvm/scripts/gvm >> ~/.zshrc
+		# will install the gvm script in your zshrc
+		bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer) \
+			| grep -A 1 "Please restart your terminal session or to get started right away run" | grep ".*source.*" | tr -s "\`" " " \
+			 >> ~/.zshrc
 	fi
 }
 
