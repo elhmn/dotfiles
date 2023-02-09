@@ -100,7 +100,8 @@ if [[ ! -d ~/vimConfig ]]; then
 	ln -sv ~/vimConfig/.vimrc ~/.nvimrc
 	ln -sv ~/vimConfig/.vim ~/.vim
 	ln -sv ~/vimConfig/.vimsrcs ~/.vimsrcs
-
+	#install plug
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	#setup nvim config
 	if command_exist nvim; then
 		mkdir -p  ~/.config/nvim
