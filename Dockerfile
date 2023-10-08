@@ -22,6 +22,7 @@ zsh \
 fuse \
 libfuse2 \
 ack-grep \
+bsdmainutils \
 ccls \
 gcc \
 bison \

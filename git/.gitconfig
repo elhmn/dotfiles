@@ -11,6 +11,16 @@
 	tool = vimdiff
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+  	insteadOf = https://github.com/
+#For rust -> https://github.com/rust-lang/cargo/issues/8172#issuecomment-649071661
+# [url "ssh://git@github.com/"]
+#     pushInsteadOf = "https://github.com/"
+#     pushInsteadOf = "git://github.com/"
+[alias]
+    graph = !git log --format='%h%C(green)%d%C(reset) %C(blue)%an%C(reset) %C(white)%ad%C(reset) %s' --graph --all -n 1000
+    gr = !git graph
+
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
