@@ -1,18 +1,33 @@
 [user]
-	name = elhmn
-	email = elhmn@github.com
+        name = Boris Mbarga
+        email = elhmn@github.com
 [github]
-	user = elhmn
-[diff]
-	tool = vimdiff
+        user = elhmn
 [core]
-	editor = vim
+        editor = vim
+# [merge]
+#       tool = vimdiff
+[diff]
+    tool = nvimdiff
+[difftool]
+    prompt = false
+[difftool "nvimdiff"]
+    # 2-way diffs
+    cmd = nvim -d "$LOCAL" "$REMOTE"
 [merge]
-	tool = vimdiff
+    tool = nvimdiff
+    conflictstyle = diff3   # shows base markers in files, useful context
+[mergetool]
+    prompt = false
+    keepBackup = false
+[mergetool "nvimdiff"]
+    # 3-pane merge: LOCAL | REMOTE | result at bottom
+    cmd = nvim -d "$LOCAL" "$BASE" "$REMOTE" "$MERGED" -c 'wincmd J'
+
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+        insteadOf = https://github.com/
 [url "ssh://git@github.com/"]
-  	insteadOf = https://github.com/
+        insteadOf = https://github.com/
 #For rust -> https://github.com/rust-lang/cargo/issues/8172#issuecomment-649071661
 # [url "ssh://git@github.com/"]
 #     pushInsteadOf = "https://github.com/"
@@ -22,10 +37,10 @@
     gr = !git graph
 
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+        clean = git-lfs clean -- %f
 [oh-my-zsh]
-	hide-status = 1
-	hide-dirty = 1
+        hide-status = 1
+        hide-dirty = 1
