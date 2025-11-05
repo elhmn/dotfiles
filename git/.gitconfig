@@ -4,9 +4,7 @@
 [github]
         user = elhmn
 [core]
-        editor = vim
-# [merge]
-#       tool = vimdiff
+        editor = nvim
 [diff]
     tool = nvimdiff
 [difftool]
@@ -22,7 +20,7 @@
     keepBackup = false
 [mergetool "nvimdiff"]
     # 3-pane merge: LOCAL | REMOTE | result at bottom
-    cmd = nvim -d "$LOCAL" "$BASE" "$REMOTE" "$MERGED" -c 'wincmd J'
+    cmd = nvim -d   "$MERGED" "$BASE" "$REMOTE" "$LOCAL" -c 'wincmd J'
 
 [url "git@github.com:"]
         insteadOf = https://github.com/
